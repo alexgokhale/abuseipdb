@@ -169,22 +169,22 @@ func (c *Client) makeRequest(method string, endpoint string, options RequestOpti
 			StatusCode: res.StatusCode,
 		}
 
-		if err != nil {
+		if err == nil {
 			requestError.Raw = string(body)
-		}
 
-		errorResponse := ErrorResponse{}
+			errorResponse := ErrorResponse{}
 
-		err = json.Unmarshal(body, &errorResponse)
+			err = json.Unmarshal(body, &errorResponse)
 
-		if err != nil {
-			details := make([]string, len(errorResponse.Errors))
+			if err == nil {
+				details := make([]string, len(errorResponse.Errors))
 
-			for _, e := range errorResponse.Errors {
-				details = append(details, e.Detail)
+				for _, e := range errorResponse.Errors {
+					details = append(details, e.Detail)
+				}
+
+				requestError.Details = details
 			}
-
-			requestError.Details = details
 		}
 
 		return res, requestError
