@@ -70,7 +70,7 @@ func (c *Client) Report(ip string, categories []Category, options ...ReportOptio
 
 	res, err := c.makeRequest("POST", "/report", RequestOptions{
 		Headers: map[string]string{
-			"Content-Type": "application/json",
+			"Content-Type": "application/x-www-form-urlencoded",
 		},
 		Body: []byte(values.Encode()),
 	})
