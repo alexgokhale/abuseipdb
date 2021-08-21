@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	version = "0.0.1"
+	version = "1.0.0"
 	baseURL = "https://api.abuseipdb.com/api/v2"
 )
 

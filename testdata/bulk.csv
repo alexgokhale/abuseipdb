@@ -1,0 +1,3 @@
+IP,Categories,ReportDate,Comment
+172.16.0.2,4,2021-08-18T10:00:37-04:00,"Testing bulk report for https://gitlab.com/honour/abuseipdb"
+172.16.0.3,4,2021-08-18T11:25:11-04:00,"Testing bulk report for https://gitlab.com/honour/abuseipdb"
