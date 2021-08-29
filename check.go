@@ -26,14 +26,7 @@ type CheckResponse struct {
 		TotalReports         int       `json:"totalReports"`
 		NumDistinctUsers     int       `json:"numDistinctUsers"`
 		LastReportedAt       time.Time `json:"lastReportedAt"`
-		Reports              []struct {
-			ReportedAt          time.Time `json:"reportedAt"`
-			Comment             string    `json:"comment"`
-			Categories          []int     `json:"categories"`
-			ReporterID          int       `json:"reporterId"`
-			ReporterCountryCode string    `json:"reporterCountryCode"`
-			ReporterCountryName string    `json:"reporterCountryName"`
-		} `json:"reports"`
+		Reports              []Report  `json:"reports"`
 	} `json:"data"`
 }
 
@@ -54,6 +47,16 @@ type CheckBlockResponse struct {
 			CountryCode          string    `json:"countryCode"`
 		} `json:"reportedAddress"`
 	} `json:"data"`
+}
+
+// Report represents the AbuseIPDB object for a report made about an IP address by a user.
+type Report struct {
+	ReportedAt          time.Time `json:"reportedAt"`
+	Comment             string    `json:"comment"`
+	Categories          []int     `json:"categories"`
+	ReporterID          int       `json:"reporterId"`
+	ReporterCountryCode string    `json:"reporterCountryCode"`
+	ReporterCountryName string    `json:"reporterCountryName"`
 }
 
 type checkConfig struct {
