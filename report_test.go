@@ -28,15 +28,15 @@ func TestClient_Report(t *testing.T) {
 
 	client := NewClient(apiKey)
 
-	reportResponse, err := client.Report("172.16.0.1", []Category{CategoryDDoSAttack}, Comment("Test Request for https://gitlab.com/honour/abuseipdb"))
+	reportResponse, err := client.Report("172.16.0.5", []Category{CategoryDDoSAttack}, Comment("Test Request for https://gitlab.com/honour/abuseipdb"))
 
 	if err != nil {
 		t.Logf("Report: expected err to be nil, got %v", err)
 		t.FailNow()
 	}
 
-	if reportResponse.Data.IpAddress != "172.16.0.1" {
-		t.Errorf(`Report: expected ip address to be "172.16.0.1", got "%s"`, reportResponse.Data.IpAddress)
+	if reportResponse.Data.IpAddress != "172.16.0.5" {
+		t.Errorf(`Report: expected ip address to be "172.16.0.5", got "%s"`, reportResponse.Data.IpAddress)
 	}
 }
 

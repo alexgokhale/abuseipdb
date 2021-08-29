@@ -143,7 +143,7 @@ func TestMakeRequest_POST(t *testing.T) {
 	client := NewClient(apiKey)
 
 	reqBody := url.Values{
-		"ip":         {"127.0.0.1"},
+		"ip":         {"172.16.0.4"},
 		"categories": {"4"},
 		"comment":    {"Test Request for https://gitlab.com/honour/abuseipdb"},
 	}
@@ -173,8 +173,8 @@ func TestMakeRequest_POST(t *testing.T) {
 		t.FailNow()
 	}
 
-	if string(body) != "{\"data\":{\"ipAddress\":\"127.0.0.1\",\"abuseConfidenceScore\":0}}" {
-		t.Errorf(`makeRequest: expected response body to be "{"data":{"ipAddress":"127.0.0.1","abuseConfidenceScore":0}}", got "%s"`, string(body))
+	if string(body) != "{\"data\":{\"ipAddress\":\"172.16.0.4\",\"abuseConfidenceScore\":0}}" {
+		t.Errorf(`makeRequest: expected response body to be "{"data":{"ipAddress":"172.16.0.4","abuseConfidenceScore":0}}", got "%s"`, string(body))
 	}
 
 	client = NewClient("")
