@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	version = "1.0.1"
+	version = "1.0.2"
 	baseURL = "https://api.abuseipdb.com/api/v2"
 )
 
@@ -25,6 +25,8 @@ var (
 // Category represents an AbuseIPDB abuse category.
 // See: https://www.abuseipdb.com/categories
 type Category int
+
+//go:generate stringer -type=Category -trimprefix=Category
 
 // A list of the categories supported by the AbuseIPDB API.
 const (
