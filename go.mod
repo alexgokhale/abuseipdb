@@ -1,3 +1,3 @@
-module gitlab.com/honour/abuseipdb
+module go.xela.tech/abuseipdb
 
 go 1.15
